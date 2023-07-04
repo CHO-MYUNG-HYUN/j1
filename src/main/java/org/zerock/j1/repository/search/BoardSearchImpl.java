@@ -44,7 +44,9 @@ public class BoardSearchImpl extends QuerydslRepositorySupport implements BoardS
         }
 
       }// endfor
+
       query.where(searchBuilder);
+      
     }
 
     // query.where(null)
