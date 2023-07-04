@@ -61,9 +61,9 @@ tasks.named('test') {
 sourceSets {
   main {
     java {
-      srcDirs = ["$projectDir/src/main/java", "$projectDir/build/generated"]
+      srcDirs = ["$projectDir/src/main/java", 
+			"$projectDir/build/generated/sources/annotationProcessor/java/main"]
     }
   }
 }
 
-compileJava.dependsOn('clean') //2 버전은 불가능.

@@ -110,7 +110,7 @@ public class BoardRepositoryTests {
 
     log.info("----------------------");
     log.info(list.size());
-    
+
     list.forEach(arr -> log.info(Arrays.toString(arr)));
 
   }
@@ -130,7 +130,7 @@ public class BoardRepositoryTests {
   @Commit
   @Transactional
   @Test
-  public void testModify(){
+  public void testModify() {
 
     Long bno = 100L;
     String title = "Modifyed Title 100";
@@ -141,7 +141,7 @@ public class BoardRepositoryTests {
   }
 
   @Test
-  public void testNative(){
+  public void testNative() {
 
     List<Object[]> result = boardRepository.listNative();
 
@@ -150,9 +150,15 @@ public class BoardRepositoryTests {
   }
 
   @Test
-  public void testSearch1(){
+  public void testSearch1() {
 
-    boardRepository.search1();
+    Pageable pageable = PageRequest.of(0, 10, Sort.by("bno").descending());
+
+    Page<Board> result = boardRepository.search1("tcw","1",pageable);
+
+    log.info(result.getTotalElements());
+
+    result.get().forEach(b -> log.info(b));
 
   }
 
