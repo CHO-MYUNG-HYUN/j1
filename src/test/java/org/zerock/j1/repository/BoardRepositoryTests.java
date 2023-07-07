@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Commit;
 import org.zerock.j1.domain.Board;
+import org.zerock.j1.dto.BoardReadDTO;
 import org.zerock.j1.dto.BoradListRcntDTO;
 import org.zerock.j1.dto.PageRequestDTO;
 import org.zerock.j1.dto.PageResponseDTO;
@@ -194,6 +195,19 @@ public class BoardRepositoryTests {
     PageResponseDTO<BoradListRcntDTO> responseDTO = boardRepository.searchDTORcnt(pageRequest);
 
     log.info(responseDTO);
+
+  }
+
+  @Test
+  public void testReadOne() {
+
+    Long bno = 77L;
+
+    BoardReadDTO dto = boardRepository.readOne(bno);
+
+    log.info(dto);
+    log.info(dto.getRegDate() + "--" + dto.getRegDate());
+    log.info(dto.getClass().getName());
 
   }
 
