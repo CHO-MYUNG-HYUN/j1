@@ -37,6 +37,7 @@ public class ReplyServiceImpl implements ReplyService {
     if (last) {
       long totalCount = replyRepository.getCountBoard(requestDTO.getBno());
       pageNum = (int) (Math.ceil(totalCount / (double) requestDTO.getSize()));
+      pageNum = pageNum <= 0? 1: pageNum;
     }
 
     Pageable pagealbe = PageRequest.of(pageNum - 1, requestDTO.getSize(), Sort.by("rno").ascending());
