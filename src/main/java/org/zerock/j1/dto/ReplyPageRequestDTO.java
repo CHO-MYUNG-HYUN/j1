@@ -17,7 +17,7 @@ public class ReplyPageRequestDTO extends PageRequestDTO{
   private int page = 1;
   
   @Builder.Default
-  private int size = 20;
+  private int size = 10; //댓글 페이지당 댓글수 
 
   private boolean last;
 
