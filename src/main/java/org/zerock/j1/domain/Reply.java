@@ -21,7 +21,7 @@ import lombok.ToString;
 @Getter
 @ToString(exclude = "board")
 public class Reply {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long rno;
@@ -34,4 +34,12 @@ public class Reply {
 
   @ManyToOne(fetch = FetchType.LAZY)
   private Board board;
+
+  public void changeText(String text) {
+    this.replyText = text;
+  }
+
+  public void changeFile(String fileName) {
+    this.replyFile = fileName;
+  }
 }
